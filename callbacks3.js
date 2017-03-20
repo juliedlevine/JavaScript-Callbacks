@@ -57,7 +57,20 @@ function shampoo(animal, callback) {
     callback();
 }
 var dog = 'dog';
-shampoo(dog, function() {
-    var clean = dog + ' is all clean now.';
-    console.log(clean);
+// shampoo(dog, function() {
+//     var clean = dog + ' is all clean now.';
+//     console.log(clean);
+// });
+
+function sum(numbers, callback) {
+    var result = numbers.reduce(function(a, b) {
+        return a + b;
+    }, 0);
+    callback(result);
+}
+sum([1, 2, 3], function(result1) {
+    sum([4, 5, 6], function(result2) {
+        console.log('First sum is ' + result1);
+        console.log('Second sum is ' + result2);
+    });
 });
